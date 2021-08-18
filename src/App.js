@@ -1,3 +1,4 @@
+
 import Card from "./Components/Card/Card";
 import Panel from "./Components/Panel/Panel";
 
@@ -7,11 +8,6 @@ function App() {
       <Panel title='To do'>
         <Card />
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        
       </Panel>
       <Panel title='Doing'>
 
