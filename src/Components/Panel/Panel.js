@@ -12,6 +12,9 @@ function Panel({ title, children }) {
     const closeAddInterface = () => {
         setShowInterface(false)
     }
+
+ 
+
     return (
         <div className='panel'>
             <div className="panel_title">

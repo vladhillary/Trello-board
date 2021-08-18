@@ -19,7 +19,11 @@ function AddCard({ showInterface, showAddInterface, closeAddInterface }) {
         <>
             {showInterface ?
                 <div className="add_card_interface">
-                    <textarea ref={areaRef} />
+                    <input type="text" placeholder='type title for task'/>
+                    <textarea 
+                    ref={areaRef} 
+                    placeholder='type text for task'
+                    />
                     <div className="add_card_interface_wrapper">
                         <button className="add_card_btn">Add Card</button>
                         <div onClick={closeAddInterface} className="close_btn">
@@ -34,9 +38,7 @@ function AddCard({ showInterface, showAddInterface, closeAddInterface }) {
                         Add another card
                     </div>
 
-
                 </div>}
-
 
         </>
 

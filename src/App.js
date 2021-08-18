@@ -1,6 +1,5 @@
-
-import Card from "./Components/Card/Card";
-import Panel from "./Components/Panel/Panel";
+import Card from "./Components/Card/Card.js";
+import Panel from "./Components/Panel/Panel.js";
 
 function App() {
   return (

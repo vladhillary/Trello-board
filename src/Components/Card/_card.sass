@@ -4,4 +4,46 @@
     padding: 8px 0px 8px 12px
     border-radius: 2px
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25)
-    margin-bottom: 15px 
+    margin-bottom: 15px
+    cursor: pointer
+.popup_wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    background-color: rgba(255,255,255,0.3)
+    .pop_up
+        width: 600px
+        height: 264px
+        background-color: $ColorBlue
+        border-radius: 5px
+        .pop_up_header
+            display: flex
+            align-items: flex-start
+            justify-content: space-between
+            padding: 16px
+            h2
+                margin: 16px 0px 16px 16px
+                @include style(#fff, 30px, bold, normal)
+            .pop_up_close
+                cursor: pointer
+        textarea
+            width: 570px
+            height: 90px
+            margin: 5px 20px 20px 20px
+            padding: 20px
+            resize: none
+            @include style(black, 16px, bold, normal)
+        button
+            background-color: $ColorBlueLight
+            @include style(#fff, 16px, bold, normal)
+            width: 100px
+            height: 32px
+            cursor: pointer
+            border-radius: 4px
+            outline: none
+            margin-left: 20px
