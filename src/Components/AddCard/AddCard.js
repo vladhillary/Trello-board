@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import plus from '../img/plus.png'
 import close from '../img/close.png'
 import { useRef } from 'react'
 
 
-function AddCard({ showInterface, showAddInterface, closeAddInterface }) {
+function AddCard() {
 
     const areaRef = useRef(null)
+    const [titleValue, setTitleValue] = useState('')
+    const [textareaValue, setTextareaValue] = useState('')
+    const [showInterface, setShowInterface] = useState(false)
 
     useEffect(() => {
 
@@ -14,13 +17,36 @@ function AddCard({ showInterface, showAddInterface, closeAddInterface }) {
 
     }, [showInterface])
 
+    const onChange = (e) => {
+
+        if(e.target.nodeName === 'INPUT') setTitleValue(e.target.value)
+
+        if(e.target.nodeName === 'TEXTAREA') setTextareaValue(e.target.value)
+
+    }
+
+    const showAddInterface = () => {
+        setShowInterface(true)
+    }
+
+    const closeAddInterface = () => {
+        setShowInterface(false)
+        setTextareaValue('')
+        setTitleValue('')
+    }
+
 
     return (
         <>
             {showInterface ?
                 <div className="add_card_interface">
-                    <input type="text" placeholder='type title for task'/>
+                    <input 
+                    value={titleValue}
+                    onChange={onChange}
+                    type="text" placeholder='type title for task'/>
                     <textarea 
+                    value={textareaValue}
+                    onChange={onChange}
                     ref={areaRef} 
                     placeholder='type text for task'
                     />

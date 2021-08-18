@@ -1,5 +1,5 @@
 import Card from "./Components/Card/Card.js";
-import Panel from "./Components/Panel/Panel.js";
+import Panel from "./Components/Panel/Panel";
 
 function App() {
   return (
