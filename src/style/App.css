@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.panel {
+  background-color: #626262;
+  width: 400px;
+  border-radius: 10px;
+  padding: 12px 12px 15px 12px;
+}
+
+.panel .panel_title {
+  margin: 12px auto 16px 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.card {
+  width: 350px;
+  height: 34px;
+  background-color: #fff;
+  padding: 8px 0px 8px 12px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  margin-bottom: 15px;
+}
+
+body {
+  background-image: url(../Components/img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+body .App {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  align-items: flex-start;
+}
