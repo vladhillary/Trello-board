@@ -9,7 +9,7 @@ function Panel({ title, children }) {
                 {title}
             </div>
             {children}
-            <AddCard />
+            <AddCard name={title}/>
         </div>
     )
 }

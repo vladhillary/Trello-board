@@ -3,10 +3,12 @@ import plus from '../img/plus.png'
 import close from '../img/close.png'
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setCreateTaskTodo } from '../../redux/actions/createTask'
+import { setCreateTaskTodo } from '../../redux/actions/createTaskTodo'
+import { setCreateTaskDoing } from '../../redux/actions/createTaskDoing'
+import { setCreateTaskDone } from '../../redux/actions/createTaskDone'
 
 
-function AddCard() {
+function AddCard({ name }) {
 
     const titleRef = useRef(null)
     const [titleValue, setTitleValue] = useState('')
@@ -47,7 +49,9 @@ function AddCard() {
 
     }
 
-    const addNewTask = () => {
+    const addNewTask = (name) => {
+
+        console.log(name)
 
         if (!titleValue) {
             setEmptyTitle(true)
@@ -60,10 +64,17 @@ function AddCard() {
 
         const newTask = {
             title: titleValue,
-            text: textareaValue
+            text: textareaValue,
+            name: name
         }
 
-        dispatch(setCreateTaskTodo(newTask))
+        if (name === 'To do') dispatch(setCreateTaskTodo(newTask))
+
+        if (name === 'Doing') dispatch(setCreateTaskDoing(newTask))
+
+        if (name === 'Done') dispatch(setCreateTaskDone(newTask))
+
+
         setTextareaValue('')
         setTitleValue('')
         setShowInterface(false)
@@ -89,7 +100,7 @@ function AddCard() {
                     />
                     <div className="add_card_interface_wrapper">
                         <button
-                            onClick={addNewTask}
+                            onClick={() => addNewTask(name)}
                             className="add_card_btn">Add Card</button>
                         <div
                             onClick={closeAddInterface}

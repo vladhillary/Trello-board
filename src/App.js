@@ -19,10 +19,22 @@ function App() {
 
       </Panel>
       <Panel title='Doing'>
-
+        {tasks.doing.map((card, index) => {
+          return <Card
+            title={card.title}
+            text={card.text}
+            key={card + index}
+          />
+        })}
       </Panel>
       <Panel title='Done'>
-
+        {tasks.done.map((card, index) => {
+          return <Card
+            title={card.title}
+            text={card.text}
+            key={card + index}
+          />
+        })}
       </Panel>
     </div>
   );
