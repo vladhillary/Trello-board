@@ -1,16 +1,7 @@
 const initialState = {
-    todo: [{
-        title: 'some title',
-        text: ' sometext'
-    }],
-    doing: [{
-        title: 'some title',
-        text: ' sometext'
-    }],
-    done: [{
-        title: 'some title',
-        text: ' sometext'
-    }],
+    todo: [],
+    doing: [],
+    done: []
 
 }
 

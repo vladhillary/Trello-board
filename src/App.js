@@ -9,32 +9,32 @@ function App() {
   return (
     <div className="App">
       <Panel title='To do'>
-        {tasks.todo.map((card, index) => {
+        {tasks.todo.length > 0 ? tasks.todo.map((card, index) => {
           return <Card
             title={card.title}
             text={card.text}
             key={card + index}
           />
-        })}
+        }) : null}
 
       </Panel>
       <Panel title='Doing'>
-        {tasks.doing.map((card, index) => {
+        {tasks.doing.length > 0 ? tasks.doing.map((card, index) => {
           return <Card
             title={card.title}
             text={card.text}
             key={card + index}
           />
-        })}
+        }) : null}
       </Panel>
       <Panel title='Done'>
-        {tasks.done.map((card, index) => {
+        {tasks.done.length > 0 ? tasks.done.map((card, index) => {
           return <Card
             title={card.title}
             text={card.text}
             key={card + index}
           />
-        })}
+        }) : null}
       </Panel>
     </div>
   );
