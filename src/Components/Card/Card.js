@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import close from '../img/close.png'
 
-function Card() {
+function Card({ title, text }) {
 
     const [showPopUp, setShowPopUp] = useState(false)
     const [editTitleForTask, setEditTitleForTask] = useState(false)
-    const [titleValue, setTitleValue] = useState('')
-    const [textareaValue, setTextareaValue] = useState('')
+    const [titleValue, setTitleValue] = useState(title)
+    const [textareaValue, setTextareaValue] = useState(text)
 
     const showEditPopUp = () => {
 
@@ -17,8 +17,8 @@ function Card() {
 
         setShowPopUp(false)
         setEditTitleForTask(false)
-        setTitleValue('')
-        setTextareaValue('')
+        setTitleValue(title)
+        setTextareaValue(text)
     }
 
     const editTitle = () => {
@@ -28,9 +28,9 @@ function Card() {
 
     const onChange = (e) => {
 
-        if(e.target.nodeName === 'INPUT') setTitleValue(e.target.value)
+        if (e.target.nodeName === 'INPUT') setTitleValue(e.target.value)
 
-        if(e.target.nodeName === 'TEXTAREA') setTextareaValue(e.target.value)
+        if (e.target.nodeName === 'TEXTAREA') setTextareaValue(e.target.value)
 
     }
 
@@ -49,7 +49,7 @@ function Card() {
                                     type='text'
                                     placeholder='type title'
                                 />
-                                : <h2 onClick={editTitle}>title</h2>}
+                                : <h2 onClick={editTitle}>{title}</h2>}
 
                             <div onClick={closeEditPopUp} className='pop_up_close'>
                                 <img src={close} alt="close icon" />
@@ -65,7 +65,7 @@ function Card() {
 
             </>}
             <div onClick={showEditPopUp} className='card'>
-                Lorem ipsum dolor sit
+                {text}
             </div>
         </>
     )
