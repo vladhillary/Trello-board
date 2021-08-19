@@ -17,6 +17,8 @@ function Card() {
 
         setShowPopUp(false)
         setEditTitleForTask(false)
+        setTitleValue('')
+        setTextareaValue('')
     }
 
     const editTitle = () => {
