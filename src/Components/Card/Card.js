@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import close from '../img/close.png'
 
 function Card({ title, text }) {
@@ -7,6 +7,7 @@ function Card({ title, text }) {
     const [editTitleForTask, setEditTitleForTask] = useState(false)
     const [titleValue, setTitleValue] = useState(title)
     const [textareaValue, setTextareaValue] = useState(text)
+    const areaRef = useRef(null)
 
     const showEditPopUp = () => {
 
@@ -34,6 +35,10 @@ function Card({ title, text }) {
 
     }
 
+    useEffect(() => {
+        if (areaRef.current) areaRef.current.focus()
+    }, [showPopUp])
+
 
     return (
         <>
@@ -56,6 +61,7 @@ function Card({ title, text }) {
                             </div>
                         </div>
                         <textarea
+                            ref={areaRef}
                             value={textareaValue}
                             onChange={onChange}
                             type='text' placeholder='type task' />

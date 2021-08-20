@@ -9,6 +9,8 @@
   width: 400px;
   border-radius: 10px;
   padding: 12px 12px 15px 12px;
+  max-height: 600px;
+  overflow: auto;
 }
 
 .panel .panel_title {

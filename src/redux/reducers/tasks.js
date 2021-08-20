@@ -2,7 +2,6 @@ const initialState = {
     todo: [],
     doing: [],
     done: []
-
 }
 
 const tasks = (state = initialState, action) => {

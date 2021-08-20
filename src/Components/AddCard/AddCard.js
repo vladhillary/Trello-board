@@ -51,7 +51,6 @@ function AddCard({ name }) {
 
     const addNewTask = (name) => {
 
-        console.log(name)
 
         if (!titleValue) {
             setEmptyTitle(true)
