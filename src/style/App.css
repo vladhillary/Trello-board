@@ -31,6 +31,23 @@
   cursor: pointer;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
+}
+
+.card:hover .delete_card {
+  display: block;
+}
+
+.card .delete_card {
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-image: url(../Components/img/delete_ico.png);
 }
 
 .popup_wrapper {
@@ -50,6 +67,7 @@
   height: 264px;
   background-color: #032642;
   border-radius: 5px;
+  z-index: 9999;
 }
 
 .popup_wrapper .pop_up .pop_up_header {

@@ -61,10 +61,12 @@ function AddCard({ name }) {
             return
         }
 
+        const id = Date.now()
+
         const newTask = {
             title: titleValue,
             text: textareaValue,
-            name: name
+            id: id
         }
 
         if (name === 'To do') dispatch(setCreateTaskTodo(newTask))

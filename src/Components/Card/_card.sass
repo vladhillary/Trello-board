@@ -8,6 +8,20 @@
     cursor: pointer
     text-overflow: ellipsis
     overflow: hidden
+    position: relative
+    &:hover
+        .delete_card
+            display: block
+    .delete_card
+       width: 16px
+       height: 16px
+       border: none
+       outline: none
+       display: none
+       position: absolute
+       right: 10px
+       top: 10px
+       background-image: url(../Components/img/delete_ico.png)
 .popup_wrapper
     display: flex
     align-items: center
@@ -23,6 +37,7 @@
         height: 264px
         background-color: $ColorBlue
         border-radius: 5px
+        z-index: 9999
         .pop_up_header
             display: flex
             align-items: flex-start

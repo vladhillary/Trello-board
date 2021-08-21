@@ -1,16 +1,21 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import close from '../img/close.png'
-
-function Card({ title, text }) {
+import { useDispatch } from 'react-redux'
+import { deleteTaskTodo } from '../../redux/actions/deleteTaskTodo'
+import { deleteTaskDoing } from '../../redux/actions/deleteTaskDoing'
+import { deleteTaskDone } from '../../redux/actions/deleteTaskDone'
+function Card({ title, text, id, name }) {
 
     const [showPopUp, setShowPopUp] = useState(false)
     const [editTitleForTask, setEditTitleForTask] = useState(false)
     const [titleValue, setTitleValue] = useState(title)
     const [textareaValue, setTextareaValue] = useState(text)
+    const dispatch = useDispatch()
 
-    const showEditPopUp = () => {
+    const showEditPopUp = (e) => {
 
-        setShowPopUp(true)
+        if (e.target.className === 'card') setShowPopUp(true)
+
     }
 
     const closeEditPopUp = () => {
@@ -32,6 +37,16 @@ function Card({ title, text }) {
 
         if (e.target.nodeName === 'TEXTAREA') setTextareaValue(e.target.value)
 
+    }
+
+    const deleteCard = (id) => {
+
+
+        if (name === 'To do') dispatch(deleteTaskTodo(id))
+
+        if (name === 'Doing') dispatch(deleteTaskDoing(id))
+
+        if (name === 'Done') dispatch(deleteTaskDone(id))
     }
 
     return (
@@ -65,6 +80,7 @@ function Card({ title, text }) {
             </>}
             <div onClick={showEditPopUp} className='card'>
                 {text}
+                <button onClick={() => deleteCard(id)} className='delete_card'></button>
             </div>
         </>
     )

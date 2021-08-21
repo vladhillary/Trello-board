@@ -14,6 +14,8 @@ function App() {
             title={card.title}
             text={card.text}
             key={card + index}
+            id={card.id}
+            name={'To do'}
           />
         }) : null}
 
@@ -24,6 +26,8 @@ function App() {
             title={card.title}
             text={card.text}
             key={card + index}
+            id={card.id}
+            name={'Doing'}
           />
         }) : null}
       </Panel>
@@ -33,6 +37,8 @@ function App() {
             title={card.title}
             text={card.text}
             key={card + index}
+            id={card.id}
+            name={'Done'}
           />
         }) : null}
       </Panel>

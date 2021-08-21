@@ -1,8 +1,6 @@
-const initialState = {
-    todo: [],
-    doing: [],
-    done: []
-}
+import checkStoreInLocalStorage from '../PrevState'
+
+const initialState = checkStoreInLocalStorage()
 
 const tasks = (state = initialState, action) => {
 
@@ -15,6 +13,7 @@ const tasks = (state = initialState, action) => {
                 todo: [...state.todo, action.payload]
 
             }
+
         case 'SET_CREATE_TASK_DOING':
 
             return {
@@ -28,6 +27,30 @@ const tasks = (state = initialState, action) => {
             return {
                 ...state,
                 done: [...state.done, action.payload]
+
+            }
+
+        case 'SET_DELETE_TASK_TODO':
+
+            return {
+                ...state,
+                todo: state.todo.filter(task => task.id !== action.payload)
+
+            }
+
+        case 'SET_DELETE_TASK_DOING':
+
+            return {
+                ...state,
+                doing: state.doing.filter(task => task.id !== action.payload)
+
+            }
+
+        case 'SET_DELETE_TASK_DONE':
+
+            return {
+                ...state,
+                done: state.done.filter(task => task.id !== action.payload)
 
             }
 
