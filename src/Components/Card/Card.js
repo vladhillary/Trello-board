@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import close from '../img/close.png'
 import { useDispatch } from 'react-redux'
-import { deleteTaskTodo } from '../../redux/actions/deleteTaskTodo'
-import { deleteTaskDoing } from '../../redux/actions/deleteTaskDoing'
-import { deleteTaskDone } from '../../redux/actions/deleteTaskDone'
+import { setDeleteTaskTodo } from '../../redux/actions/deleteTaskTodo'
+import { setDeleteTaskDoing } from '../../redux/actions/deleteTaskDoing'
+import { setDeleteTaskDone } from '../../redux/actions/deleteTaskDone'
+import { setEditTaskTodo } from '../../redux/actions/editTaskTodo'
+import { setEditTasDoing } from '../../redux/actions/editTaskDoing'
+import { setEditTaskDone } from '../../redux/actions/editTaskDone'
+
 function Card({ title, text, id, name }) {
 
     const [showPopUp, setShowPopUp] = useState(false)
@@ -39,14 +43,29 @@ function Card({ title, text, id, name }) {
 
     }
 
-    const deleteCard = (id) => {
+    const deleteCard = () => {
 
 
-        if (name === 'To do') dispatch(deleteTaskTodo(id))
+        if (name === 'To do') dispatch(setDeleteTaskTodo(id))
 
-        if (name === 'Doing') dispatch(deleteTaskDoing(id))
+        if (name === 'Doing') dispatch(setDeleteTaskDoing(id))
 
-        if (name === 'Done') dispatch(deleteTaskDone(id))
+        if (name === 'Done') dispatch(setDeleteTaskDone(id))
+    }
+
+    const editCard = () => {
+
+        const editedCard = {
+            title: titleValue,
+            text: textareaValue,
+            id: id
+        }
+
+        if (name === 'To do') dispatch(setEditTaskTodo(editedCard))
+
+        if (name === 'Doing') dispatch(setEditTasDoing(editedCard))
+
+        if (name === 'Done') dispatch(setEditTaskDone(editedCard))
     }
 
     return (
@@ -73,14 +92,14 @@ function Card({ title, text, id, name }) {
                             value={textareaValue}
                             onChange={onChange}
                             type='text' placeholder='type task' />
-                        <button>Save</button>
+                        <button onClick={editCard}>Save</button>
                     </div>
                 </div>
 
             </>}
             <div onClick={showEditPopUp} className='card'>
                 {text}
-                <button onClick={() => deleteCard(id)} className='delete_card'></button>
+                <button onClick={deleteCard} className='delete_card'></button>
             </div>
         </>
     )
