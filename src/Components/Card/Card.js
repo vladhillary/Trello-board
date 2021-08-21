@@ -98,7 +98,7 @@ function Card({ title, text, id, name }) {
 
             </>}
             <div onClick={showEditPopUp} className='card'>
-                {text}
+                {title}
                 <button onClick={deleteCard} className='delete_card'></button>
             </div>
         </>
