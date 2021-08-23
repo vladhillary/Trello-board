@@ -1,6 +1,20 @@
 import { createStore } from 'redux'
 import rootReducer from './reducers'
-import checkStoreInLocalStorage from './PrevState'
+
+const checkStoreInLocalStorage = () => {
+
+    const oldState = JSON.parse(window.localStorage.getItem('trello'))
+
+    const initialState = {
+        todo: [],
+        doing: [],
+        done: []
+    }
+
+    if (!oldState) return initialState
+
+    return oldState
+}
 
 const store = createStore(rootReducer, checkStoreInLocalStorage(), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

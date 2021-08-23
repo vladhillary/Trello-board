@@ -66,6 +66,9 @@ function Card({ title, text, id, name }) {
         if (name === 'Doing') dispatch(setEditTasDoing(editedCard))
 
         if (name === 'Done') dispatch(setEditTaskDone(editedCard))
+
+        setShowPopUp(false)
+        
     }
 
     return (

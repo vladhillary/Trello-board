@@ -1,6 +1,4 @@
-import checkStoreInLocalStorage from '../PrevState'
-
-const initialState = checkStoreInLocalStorage()
+const initialState = null
 
 const tasks = (state = initialState, action) => {
 
